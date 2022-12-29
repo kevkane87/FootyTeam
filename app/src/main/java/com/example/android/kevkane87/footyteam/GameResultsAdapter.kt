@@ -5,20 +5,20 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import com.example.android.kevkane87.footyteam.database.GameResult
-import com.example.android.kevkane87.footyteam.databinding.GameResultViewholderBinding
+import com.example.android.kevkane87.footyteam.databinding.GameResultsViewholderBinding
 
-class GameResultAdapter : PagingDataAdapter<GameResult, GameResultViewHolder>(ARTICLE_DIFF_CALLBACK) {
+class GameResultsAdapter : PagingDataAdapter<GameResult, GameResultsViewHolder>(ARTICLE_DIFF_CALLBACK) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameResultViewHolder =
-        GameResultViewHolder(
-            GameResultViewholderBinding.inflate(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameResultsViewHolder =
+        GameResultsViewHolder(
+            GameResultsViewholderBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false,
             )
         )
 
-    override fun onBindViewHolder(holder: GameResultViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: GameResultsViewHolder, position: Int) {
         val tile = getItem(position)
         if (tile != null) {
             holder.bind(tile)

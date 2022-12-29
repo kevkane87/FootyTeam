@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_homeFragment_to_newGameResultFragment"
             app:destination="@id/newGameResultFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_gameResultsFragment"
+            app:destination="@id/gameResultsFragment" />
     </fragment>
     <fragment
         android:id="@+id/newGameResultFragment"
@@ -20,6 +23,14 @@
         tools:layout="@layout/fragment_new_game_result" >
         <action
             android:id="@+id/action_newGameResultFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameResultsFragment"
+        android:name="com.example.android.kevkane87.footyteam.GameResultsFragment"
+        android:label="GameResultsFragment" >
+        <action
+            android:id="@+id/action_gameResultsFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

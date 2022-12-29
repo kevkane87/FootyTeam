@@ -32,6 +32,10 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.buttonViewAll.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_gameResultsFragment)
+        }
+
         binding.addFAB.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_newGameResultFragment)
         }
