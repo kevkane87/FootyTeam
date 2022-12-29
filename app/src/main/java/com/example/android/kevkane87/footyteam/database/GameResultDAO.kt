@@ -2,6 +2,7 @@ package com.example.android.kevkane87.footyteam.database
 
 import androidx.paging.PagingSource
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -16,5 +17,8 @@ import androidx.room.Query
 
         @Insert(onConflict = OnConflictStrategy.REPLACE)
         suspend fun saveGameResult(game: GameResult)
+
+        @Query("DELETE FROM GameResult where id = :gameId")
+        suspend fun deleteGameById(gameId: Long)
 
     }

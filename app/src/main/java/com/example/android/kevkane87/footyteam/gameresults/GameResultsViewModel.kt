@@ -1,19 +1,17 @@
-package com.example.android.kevkane87.footyteam
+package com.example.android.kevkane87.footyteam.gameresults
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
-import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
+import com.example.android.kevkane87.footyteam.Repository
 import com.example.android.kevkane87.footyteam.database.GameResult
 import com.example.android.kevkane87.footyteam.database.GameResultDatabase.Companion.getDatabase
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.launch
 
 private const val ITEMS_PER_PAGE = 50
 
@@ -36,4 +34,12 @@ class GameResultsViewModel (
         // showing the paged data goes through lifecycle changes, pagination remains cached and
         // the UI does not have to start paging from the beginning when it resumes.
         .cachedIn(viewModelScope)
+
+
+
+    fun deleteGame(id: Long){
+        viewModelScope.launch {
+            repository.deleteGame((id))
+        }
+    }
 }

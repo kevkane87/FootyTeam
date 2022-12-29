@@ -1,4 +1,4 @@
-package com.example.android.kevkane87.footyteam
+package com.example.android.kevkane87.footyteam.newgameresult
 
 
 import android.app.Application

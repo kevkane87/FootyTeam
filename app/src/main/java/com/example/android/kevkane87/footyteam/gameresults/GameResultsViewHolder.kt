@@ -1,4 +1,4 @@
-package com.example.android.kevkane87.footyteam
+package com.example.android.kevkane87.footyteam.gameresults
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.kevkane87.footyteam.database.GameResult
@@ -15,7 +15,6 @@ class GameResultsViewHolder (
             binding.awayTeam.text = game.awayTeam
             binding.homeGoals.text = game.homeGoals.toString()
             binding.awayGoals.text = game.awayGoals.toString()
-
         }
     }
 }

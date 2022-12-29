@@ -15,6 +15,15 @@ class Repository (private val database: GameResultDatabase){
                 database.gameResultDao.saveGameResult(game)
             }
             catch (_: Exception) {
+            }
+        }
+
+    suspend fun deleteGame(id: Long) =
+        withContext(Dispatchers.IO) {
+            try {
+                database.gameResultDao.deleteGameById(id)
+            }
+            catch (_: Exception) {
 
             }
         }

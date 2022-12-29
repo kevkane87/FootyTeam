@@ -1,4 +1,4 @@
-package com.example.android.kevkane87.footyteam
+package com.example.android.kevkane87.footyteam.gameresults
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.DiffUtil
 import com.example.android.kevkane87.footyteam.database.GameResult
 import com.example.android.kevkane87.footyteam.databinding.GameResultsViewholderBinding
 
-class GameResultsAdapter : PagingDataAdapter<GameResult, GameResultsViewHolder>(ARTICLE_DIFF_CALLBACK) {
+class GameResultsAdapter : PagingDataAdapter<GameResult, GameResultsViewHolder>(
+    ARTICLE_DIFF_CALLBACK
+) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameResultsViewHolder =
         GameResultsViewHolder(

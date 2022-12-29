@@ -1,10 +1,9 @@
-package com.example.android.kevkane87.footyteam
+package com.example.android.kevkane87.footyteam.gameresults
 
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-
 
 
 class GameResultsViewModelFactory(val app: Application) : ViewModelProvider.Factory {

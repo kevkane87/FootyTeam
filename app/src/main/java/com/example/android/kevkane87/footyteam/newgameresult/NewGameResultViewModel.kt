@@ -1,8 +1,9 @@
-package com.example.android.kevkane87.footyteam
+package com.example.android.kevkane87.footyteam.newgameresult
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.android.kevkane87.footyteam.Repository
 import com.example.android.kevkane87.footyteam.database.GameResult
 import com.example.android.kevkane87.footyteam.database.GameResultDatabase
 import kotlinx.coroutines.launch

@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/newGameResultFragment"
-        android:name="com.example.android.kevkane87.footyteam.NewGameResultFragment"
+        android:name="com.example.android.kevkane87.footyteam.newgameresult.NewGameResultFragment"
         android:label="fragment_new_game_result"
         tools:layout="@layout/fragment_new_game_result" >
         <action
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/gameResultsFragment"
-        android:name="com.example.android.kevkane87.footyteam.GameResultsFragment"
+        android:name="com.example.android.kevkane87.footyteam.gameresults.GameResultsFragment"
         android:label="GameResultsFragment" >
         <action
             android:id="@+id/action_gameResultsFragment_to_homeFragment"

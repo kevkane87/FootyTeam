@@ -1,4 +1,4 @@
-package com.example.android.kevkane87.footyteam
+package com.example.android.kevkane87.footyteam.newgameresult
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.android.kevkane87.footyteam.R
 import com.example.android.kevkane87.footyteam.database.GameResult
 import com.example.android.kevkane87.footyteam.databinding.FragmentNewGameResultBinding
 
