@@ -5,9 +5,11 @@ import com.example.android.kevkane87.footyteam.database.GameResult
 import com.example.android.kevkane87.footyteam.databinding.GameResultsViewholderBinding
 
 class GameResultsViewHolder (
-
     private val binding: GameResultsViewholderBinding
     ) : RecyclerView.ViewHolder(binding.root) {
+
+    var id: Int? = null
+
     fun bind(game: GameResult) {
         binding.apply {
             binding.date.text = game.date
@@ -15,6 +17,7 @@ class GameResultsViewHolder (
             binding.awayTeam.text = game.awayTeam
             binding.homeGoals.text = game.homeGoals.toString()
             binding.awayGoals.text = game.awayGoals.toString()
+            id = (game as? GameResult)?.id
         }
     }
 }

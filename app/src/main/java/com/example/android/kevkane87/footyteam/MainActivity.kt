@@ -9,6 +9,8 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import androidx.navigation.fragment.NavHostFragment
 import com.example.android.kevkane87.footyteam.databinding.ActivityMainBinding
 
@@ -30,6 +32,8 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
+
+        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

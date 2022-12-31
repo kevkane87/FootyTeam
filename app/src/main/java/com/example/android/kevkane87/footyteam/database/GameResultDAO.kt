@@ -19,6 +19,6 @@ import androidx.room.Query
         suspend fun saveGameResult(game: GameResult)
 
         @Query("DELETE FROM GameResult where id = :gameId")
-        suspend fun deleteGameById(gameId: Long)
+        suspend fun deleteGameById(gameId: Int)
 
     }

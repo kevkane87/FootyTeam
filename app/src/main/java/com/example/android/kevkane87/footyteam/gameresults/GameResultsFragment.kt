@@ -79,13 +79,9 @@ class GameResultsFragment : Fragment() {
             // automatically removed in response, because the adapter is observing the live list.
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
 
-
-
-                (viewHolder as GameResultsViewHolder).itemId.let {
+                (viewHolder as GameResultsViewHolder).id?.let {
                     viewModel.deleteGame(it)
                 }
-
-
             }
         }).attachToRecyclerView(binding.recyclerGameResults)
     }

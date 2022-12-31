@@ -18,7 +18,7 @@ class Repository (private val database: GameResultDatabase){
             }
         }
 
-    suspend fun deleteGame(id: Long) =
+    suspend fun deleteGame(id: Int) =
         withContext(Dispatchers.IO) {
             try {
                 database.gameResultDao.deleteGameById(id)

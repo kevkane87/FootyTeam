@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ListPreference
+        android:defaultValue="@string/pf_dark_auto"
+        android:dialogTitle="@string/pf_dark_dialog"
+        android:entries="@array/light_theme"
+        android:entryValues="@array/light_theme_value"
+        app:key="@string/pf_key_light"
+        app:summary="@string/pf_content_message"
+        app:title="@string/pf_light_title" />

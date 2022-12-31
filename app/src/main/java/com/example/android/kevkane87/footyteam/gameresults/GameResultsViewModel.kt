@@ -37,7 +37,7 @@ class GameResultsViewModel (
 
 
 
-    fun deleteGame(id: Long){
+    fun deleteGame(id: Int){
         viewModelScope.launch {
             repository.deleteGame((id))
         }
