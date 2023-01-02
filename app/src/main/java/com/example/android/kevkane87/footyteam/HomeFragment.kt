@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.example.android.kevkane87.footyteam.databinding.FragmentHomeBinding
 
@@ -24,6 +25,8 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.app_name)
+
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
 
@@ -36,7 +39,7 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_homeFragment_to_gameResultsFragment)
         }
 
-        binding.addFAB.setOnClickListener {
+        binding.buttonAddResult.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_newGameResultFragment)
         }
     }

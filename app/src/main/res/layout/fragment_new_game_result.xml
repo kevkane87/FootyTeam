@@ -8,18 +8,20 @@
 
     <Button
         android:id="@+id/button_save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
+        style="@style/Button"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="32dp"
         android:text="Save Result"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/away_goals_input" />
 
     <EditText
         android:id="@+id/date_input"
-        android:layout_width="0dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
@@ -75,13 +77,32 @@
         android:id="@+id/away_goals_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Away Goals"
         android:inputType="number"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@+id/home_goals_input"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/home_goals_input"
         app:layout_constraintTop_toBottomOf="@+id/home_goals_input" />
+
+    <CheckBox
+        android:id="@+id/home_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My Team"
+        app:layout_constraintBottom_toBottomOf="@+id/home_team_input"
+        app:layout_constraintStart_toEndOf="@+id/home_team_input"
+        app:layout_constraintTop_toTopOf="@+id/home_team_input" />
+
+    <CheckBox
+        android:id="@+id/away_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My Team"
+        app:layout_constraintBottom_toBottomOf="@+id/away_team_input"
+        app:layout_constraintStart_toEndOf="@+id/away_team_input"
+        app:layout_constraintTop_toTopOf="@+id/away_team_input" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

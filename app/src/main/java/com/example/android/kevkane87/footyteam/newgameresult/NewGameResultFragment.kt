@@ -1,12 +1,15 @@
 package com.example.android.kevkane87.footyteam.newgameresult
 
 import android.os.Bundle
+import android.text.Editable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.preference.PreferenceManager
 import com.example.android.kevkane87.footyteam.R
 import com.example.android.kevkane87.footyteam.database.GameResult
 import com.example.android.kevkane87.footyteam.databinding.FragmentNewGameResultBinding
@@ -31,6 +34,8 @@ class NewGameResultFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.add_result)
 
         _binding = FragmentNewGameResultBinding.inflate(inflater, container, false)
         return binding.root
@@ -62,6 +67,31 @@ class NewGameResultFragment : Fragment() {
             findNavController().navigate(R.id.action_newGameResultFragment_to_homeFragment)
 
         }
+
+        binding.homeCheckbox.setOnClickListener {
+
+            val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext())
+            val myTeam = sharedPreferences?.getString(
+                activity?.getString(R.string.my_team),
+                ""
+            ).toString()
+
+            binding.homeTeamInput.text = Editable.Factory.getInstance().newEditable(myTeam)
+
+        }
+
+        binding.awayCheckbox.setOnClickListener {
+
+            val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext())
+            val myTeam = sharedPreferences?.getString(
+                activity?.getString(R.string.my_team),
+                ""
+            ).toString()
+
+            binding.awayTeamInput.text = Editable.Factory.getInstance().newEditable(myTeam)
+
+        }
+
     }
 
     override fun onDestroyView() {

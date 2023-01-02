@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.example.android.kevkane87.footyteam.R
 import com.example.android.kevkane87.footyteam.databinding.FragmentGameResultsBinding
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -17,11 +19,6 @@ class GameResultsFragment : Fragment() {
 
     private var _binding: FragmentGameResultsBinding? = null
     private val binding get() = _binding!!
-
-   /* private val viewModel: GameResultsViewModel by lazy {
-        val activity = requireNotNull(this.activity)
-        ViewModelProvider(this, GameResultsViewModelFactory(activity.application))[GameResultsViewModel::class.java]
-    }*/
 
     private val viewModel by viewModels<GameResultsViewModel> { GameResultsViewModelFactory(requireActivity().application) }
 
@@ -32,6 +29,7 @@ class GameResultsFragment : Fragment() {
 
         _binding = FragmentGameResultsBinding.inflate(inflater, container, false)
 
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.results)
 
         val adapter = GameResultsAdapter()
         binding.recyclerGameResults.adapter = adapter
@@ -59,18 +57,6 @@ class GameResultsFragment : Fragment() {
 
     private fun initSwipeToDelete() {
         ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT) {
-            // enable the items to swipe to the left or right
-           /* override fun getMovementFlags(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder
-            ): Int {
-                val gameResultsViewHolder = viewHolder as GameResultsViewHolder
-                return if (gameResultsViewHolder.itemId != null) {
-                    makeMovementFlags(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT)
-                } else {
-                    makeMovementFlags(0, 0)
-                }
-            }*/
 
             override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder,
                                 target: RecyclerView.ViewHolder): Boolean = false

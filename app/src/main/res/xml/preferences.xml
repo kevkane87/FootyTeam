@@ -2,10 +2,20 @@
 
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
     <ListPreference
-        android:defaultValue="@string/pf_dark_auto"
-        android:dialogTitle="@string/pf_dark_dialog"
-        android:entries="@array/light_theme"
-        android:entryValues="@array/light_theme_value"
-        app:key="@string/pf_key_light"
-        app:summary="@string/pf_content_message"
-        app:title="@string/pf_light_title" />
+        app:defaultValue="THEME_NIGHT_NO"
+        app:summary="%s"
+        app:iconSpaceReserved="false"
+        app:entries="@array/dark_mode_entries"
+        app:entryValues="@array/dark_mode_values"
+        app:key="@string/select_theme"
+        app:title="@string/select_theme" />
+
+
+    <EditTextPreference
+        app:key="@string/my_team"
+        app:title="@string/my_team"
+        app:useSimpleSummaryProvider="true"
+        app:defaultValue=""
+        app:iconSpaceReserved="false"/>
+
+</PreferenceScreen>
