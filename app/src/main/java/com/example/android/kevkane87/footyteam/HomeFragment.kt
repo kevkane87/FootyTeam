@@ -42,6 +42,10 @@ class HomeFragment : Fragment() {
         binding.buttonAddResult.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_newGameResultFragment)
         }
+
+        binding.buttonMyteamStats.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_statsFragment)
+        }
     }
 
     override fun onDestroyView() {

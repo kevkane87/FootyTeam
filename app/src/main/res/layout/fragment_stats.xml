@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/Table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            android:text="My Team:"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/my_team"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/my_team"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+        <RadioGroup
+            android:id="@+id/radio_group_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+            <RadioButton
+                android:id="@+id/all_games"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="All Games" />
+
+            <RadioButton
+                android:id="@+id/home_games"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Home Games" />
+
+            <RadioButton
+                android:id="@+id/away_games"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Away Games" />
+
+        </RadioGroup>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginEnd="@dimen/margin_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radio_group_select">
+
+            <TableLayout
+                android:id="@+id/tableLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_background"
+                android:stretchColumns="1">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/tableRowColor1">
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Number of Games"
+                        android:textAlignment="viewEnd" />
+
+                    <TextView
+                        android:id="@+id/no_of_games"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/tableRowColor2">
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Wins"
+                        android:textAlignment="viewEnd" />
+
+                    <TextView
+                        android:id="@+id/no_of_wins"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/tableRowColor1">
+
+                    <TextView
+                        android:id="@+id/textView9"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Draws"
+                        android:textAlignment="viewEnd" />
+
+                    <TextView
+                        android:id="@+id/no_of_draws"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/tableRowColor2">
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Losses"
+                        android:textAlignment="viewEnd" />
+
+                    <TextView
+                        android:id="@+id/no_of_losses"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/tableRowColor1">
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Win %"
+                        android:textAlignment="viewEnd" />
+
+                    <TextView
+                        android:id="@+id/win_percent"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/tableRowColor2">
+
+                    <TextView
+                        android:id="@+id/textView14"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Draw %"
+                        android:textAlignment="viewEnd" />
+
+                    <TextView
+                        android:id="@+id/draw_percent"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/tableRowColor1">
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Loss %"
+                        android:textAlignment="viewEnd" />
+
+                    <TextView
+                        android:id="@+id/loss_percent"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/tableRowColor2">
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Form"
+                        android:textAlignment="viewEnd" />
+
+                    <TextView
+                        android:id="@+id/form"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:maxLength="5" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/tableRowColor1">
+
+                    <TextView
+                        android:id="@+id/label_tot_goals_for"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Goals For"
+                        android:textAlignment="viewEnd" />
+
+                    <TextView
+                        android:id="@+id/tot_goals_for"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/tableRowColor2">
+
+                    <TextView
+                        android:id="@+id/label_tot_goals_against"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Goals Against"
+                        android:textAlignment="viewEnd" />
+
+                    <TextView
+                        android:id="@+id/tot_goals_against"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/tableRowColor1">
+
+                    <TextView
+                        android:id="@+id/textView21"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Average Goals For"
+                        android:textAlignment="viewEnd" />
+
+                    <TextView
+                        android:id="@+id/av_goals_for"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/tableRowColor2">
+
+                    <TextView
+                        android:id="@+id/textView23"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Average Goals Against"
+                        android:textAlignment="viewEnd" />
+
+                    <TextView
+                        android:id="@+id/av_goals_against"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/tableRowColor1">
+
+                    <TextView
+                        android:id="@+id/textView25"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Biggest Win"
+                        android:textAlignment="viewEnd" />
+
+                    <TextView
+                        android:id="@+id/biggest_win"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/tableRowColor2">
+
+                    <TextView
+                        android:id="@+id/textView28"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Biggest Loss"
+                        android:textAlignment="viewEnd" />
+
+                    <TextView
+                        android:id="@+id/biggest_loss"
+                        style="@style/stats_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal" />
+                </TableRow>
+            </TableLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

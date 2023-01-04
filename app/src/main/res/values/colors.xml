@@ -15,4 +15,9 @@
     <color name="primaryTextColor">#ffffff</color>
 
     <color name="secondaryTextColor">#000000</color>
+
+    <color name="tableRowColor1">@color/secondaryColor</color>
+
+    <color name="tableRowColor2">@color/secondaryLightColor</color>
+
 </resources>

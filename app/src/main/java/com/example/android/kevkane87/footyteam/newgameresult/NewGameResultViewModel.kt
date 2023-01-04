@@ -15,7 +15,6 @@ class NewGameResultViewModel(
     private val repository = Repository(GameResultDatabase.getDatabase(application))
 
     fun saveResult(gameResult: GameResult) {
-
         viewModelScope.launch {
             repository.saveBet(gameResult)
         }

@@ -17,6 +17,7 @@
     <string name="add_result">Add Result</string>
     <string name="results">Results</string>
     <string name="my_team">My Team</string>
+    <string name="stats">Statistics</string>
 
     <!-- Dark Mode ListPreference -->
     <string-array name="dark_mode_entries">
