@@ -6,7 +6,7 @@ FootyTeam is an Android application for recording football results and viewing s
 
 ## Screenshots
 
-![image](https://user-images.githubusercontent.com/74727584/212678686-264a9ac0-9094-4681-8bba-29b752237e75.png)
+![image](https://user-images.githubusercontent.com/74727584/212678872-c4784267-4ad6-472d-b96e-c11600c1c4dc.png)
 
 
 ## Technologies and Libraries
