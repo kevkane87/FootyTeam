@@ -8,13 +8,14 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.StateFlow
 
 
 //DAO functions for accessing database
     @Dao
     interface GameResultDAO  {
 
-        @Query("SELECT * FROM GameResult")
+        @Query("SELECT * FROM GameResult ORDER BY date")
         fun pagingSource(): PagingSource<Int, GameResult>
 
         @Query("SELECT * FROM GameResult")

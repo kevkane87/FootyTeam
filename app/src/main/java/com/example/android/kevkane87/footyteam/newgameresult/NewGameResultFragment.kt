@@ -1,7 +1,6 @@
 package com.example.android.kevkane87.footyteam.newgameresult
 
 import android.app.DatePickerDialog
-import android.app.TimePickerDialog
 import android.os.Bundle
 import android.text.Editable
 import androidx.fragment.app.Fragment
@@ -18,6 +17,8 @@ import com.example.android.kevkane87.footyteam.R
 import com.example.android.kevkane87.footyteam.database.GameResult
 import com.example.android.kevkane87.footyteam.databinding.FragmentNewGameResultBinding
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 /**
@@ -36,8 +37,11 @@ class NewGameResultFragment : Fragment() {
         ViewModelProvider(this, NewGameResultViewModelFactory(activity.application))[NewGameResultViewModel::class.java]
     }
 
-    private var date = Calendar.getInstance()
-    private val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.UK)
+    private var dateToday = LocalDate.now()
+    private var gameDate = Calendar.getInstance()
+    private val dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.UK)
+    private val simpleDateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.UK)
+    private val dateFormatDatabase = DateTimeFormatter.ofPattern("yyyy/MM/dd", Locale.UK)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,11 +58,17 @@ class NewGameResultFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.dateTextView.text = dateFormat.format(date.time)
+        binding.dateTextView.text = dateToday.format(dateFormat)
 
         binding.buttonSave.setOnClickListener {
 
-            val date = binding.dateTextView.text.toString().ifEmpty { "" }
+           // val date = LocalDate.parse(date, dateFormatDatabase)
+           // binding.date.text = dateFormat.format(date)
+
+            val dateString = binding.dateTextView.text.toString().ifEmpty { "" }
+            val date = LocalDate.parse(dateString, dateFormat)
+
+
             val homeTeam = binding.homeTeamInput.text.toString().ifEmpty { "" }
             val awayTeam = binding.awayTeamInput.text.toString().ifEmpty { "" }
             val homeGoals = binding.homeGoalsInput.text.toString().ifEmpty { "0" }
@@ -66,7 +76,7 @@ class NewGameResultFragment : Fragment() {
 
             val result =  GameResult(
                 0,
-                date,
+                dateFormatDatabase.format(date),
                 homeTeam,
                 awayTeam,
                 homeGoals.toInt(),
@@ -99,10 +109,10 @@ class NewGameResultFragment : Fragment() {
         val day = c.get(Calendar.DAY_OF_MONTH)
 
         val dateSetListener = DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
-            date.set(Calendar.YEAR, year)
-            date.set(Calendar.MONTH, monthOfYear)
-            date.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-            binding.dateTextView.text = dateFormat.format(date.time)
+            gameDate.set(Calendar.YEAR, year)
+            gameDate.set(Calendar.MONTH, monthOfYear)
+            gameDate.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+            binding.dateTextView.text = simpleDateFormat.format(gameDate.time)
         }
         val dpd = DatePickerDialog(
             requireContext(),

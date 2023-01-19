@@ -1,12 +1,14 @@
 package com.example.android.kevkane87.footyteam.stats
 
 import android.app.Application
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
+import androidx.lifecycle.*
 import com.example.android.kevkane87.footyteam.Repository
 import com.example.android.kevkane87.footyteam.database.GameResult
 import com.example.android.kevkane87.footyteam.database.GameResultDatabase
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.SharingStarted.Companion.WhileSubscribed
+import kotlinx.coroutines.launch
 import java.text.DecimalFormat
 import kotlin.math.roundToInt
 
@@ -32,7 +34,7 @@ class StatsViewModel(
 
     private val repository = Repository(GameResultDatabase.getDatabase(application))
 
-    val allResults: LiveData<List<GameResult>> = repository.getAllResults.asLiveData()
+    val allResults = repository.getAllResults().asLiveData()
 
     var size = allResults.value?.size
 
@@ -71,8 +73,7 @@ class StatsViewModel(
                             biggestWinMargin = winMargin(it.homeGoals, it.awayGoals)
                             biggestWin = it.homeGoals.toString() + " - " + it.awayGoals.toString()
                             biggestWinGoalsScored = it.homeGoals
-                        }
-                        else if (winMargin(it.homeGoals, it.awayGoals) == biggestWinMargin && it.homeGoals > biggestWinGoalsScored ){
+                        } else if (winMargin(it.homeGoals, it.awayGoals) == biggestWinMargin && it.homeGoals > biggestWinGoalsScored ){
                             biggestWinMargin = winMargin(it.homeGoals, it.awayGoals)
                             biggestWin = it.homeGoals.toString() + " - " + it.awayGoals.toString()
                             biggestWinGoalsScored = it.homeGoals
@@ -91,8 +92,7 @@ class StatsViewModel(
                             biggestLossMargin = winMargin(it.awayGoals, it.homeGoals)
                             biggestLoss = it.homeGoals.toString() + " - " + it.awayGoals.toString()
                             biggestLossGoalsConceded = it.awayGoals
-                        }
-                        else if (winMargin(it.awayGoals, it.homeGoals) == biggestLossMargin && it.awayGoals > biggestLossGoalsConceded ){
+                        } else if (winMargin(it.awayGoals, it.homeGoals) == biggestLossMargin && it.awayGoals > biggestLossGoalsConceded ){
                             biggestLossMargin = winMargin(it.awayGoals, it.homeGoals)
                             biggestLoss = it.homeGoals.toString() + " - " + it.awayGoals.toString()
                             biggestLossGoalsConceded = it.awayGoals
@@ -116,8 +116,7 @@ class StatsViewModel(
                             biggestWinMargin = winMargin(it.awayGoals, it.homeGoals)
                             biggestWin = it.homeGoals.toString() + " - " + it.awayGoals.toString()
                             biggestWinGoalsScored = it.awayGoals
-                        }
-                        else if (winMargin(it.awayGoals, it.homeGoals) == biggestWinMargin && it.awayGoals > biggestWinGoalsScored ){
+                        } else if (winMargin(it.awayGoals, it.homeGoals) == biggestWinMargin && it.awayGoals > biggestWinGoalsScored ){
                             biggestWinMargin = winMargin(it.awayGoals, it.homeGoals)
                             biggestWin = it.homeGoals.toString() + " - " + it.awayGoals.toString()
                             biggestWinGoalsScored = it.awayGoals
@@ -136,8 +135,7 @@ class StatsViewModel(
                             biggestLossMargin = winMargin(it.homeGoals, it.awayGoals)
                             biggestLoss = it.homeGoals.toString() + " - " + it.awayGoals.toString()
                             biggestLossGoalsConceded = it.homeGoals
-                        }
-                        else if (winMargin(it.homeGoals, it.awayGoals)== biggestLossMargin && it.homeGoals > biggestLossGoalsConceded ){
+                        } else if (winMargin(it.homeGoals, it.awayGoals)== biggestLossMargin && it.homeGoals > biggestLossGoalsConceded ){
                             biggestLossMargin = winMargin(it.homeGoals, it.awayGoals)
                             biggestLoss = it.homeGoals.toString() + " - " + it.awayGoals.toString()
                             biggestLossGoalsConceded = it.homeGoals
@@ -168,4 +166,10 @@ class StatsViewModel(
         return winnerGoals - loserGoals
     }
 
+}
+
+sealed interface Result<T> {
+    object Loading : Result<GameResult?>
+    data class Success(val lst: List<Int>) : Result<GameResult?>
+    data class Error(val err: Throwable) : Result<GameResult?>
 }
